@@ -77,12 +77,7 @@ namespace TechnoLogica.Eservices.Public.Infrastructure.Services
             var fileName = Utils.EnsureFileNameExtension(docName, fileType);
             encodedFileName = Utils.GetBrowserEncodedString(fileName);
 
-            if (isXml == 1 && content != null)
-                return Utils.GetByteArrayFromDocumentContent(content);
-
-            else
-                return Utils.GetByteArrayFromDocumentContent(content, false);
-
+            return Utils.GetByteArrayFromDocumentContent(content, isXml == 1);
         }
     }
 }
